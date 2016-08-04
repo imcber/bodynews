@@ -7,5 +7,6 @@ from posts import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/$', views.ListView.as_view(), name="lista"),
+    url(r'^blog/(?P<slug>[-\w]+)/$', views.DetailView.as_view(), name="detalle"),
     url(r'^post/new/$', views.post_new, name='post_new'),
 ]
