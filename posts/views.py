@@ -21,3 +21,8 @@ class DetailView(View):
 		'post':post
 		}
 		return render(request,template_name,context)
+
+class CreatePostView(View):
+	def get(self,request):
+		template_name = 'posteando.html'
+		return render(request,template_name)
