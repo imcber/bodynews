@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .models import Post
-
+from .forms import PostForm
 
 
 class ListView(View):
@@ -13,6 +13,7 @@ class ListView(View):
 		}
 		return render(request,template_name,compa)
 
+
 class DetailView(View):
 	def get(self,request,slug):
 		template_name = 'detalle.html'
@@ -22,7 +23,8 @@ class DetailView(View):
 		}
 		return render(request,template_name,context)
 
-class CreatePostView(View):
-	def get(self,request):
-		template_name = 'posteando.html'
-		return render(request,template_name)
+def post_new(request):
+	form = PostForm()
+	template_name = 'posteando.html'
+	context =  {'form': form}
+	return render(request, template_name, context)

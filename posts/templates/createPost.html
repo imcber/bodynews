@@ -1,11 +1,20 @@
-
+{% load staticfiles %}
 <html>
 <head>
 	<title>Creador de Posts</title>
 </head>
 <body>
-	<h1>¡Quiobole!</h1>
-	{% block content %}
-	{% endblock content %}
+  <div class="page-header">
+                <a href="[% url 'posts.views.post_new' %]" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <h1><a href="/">¡Body news!</a></h1>
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock content%}
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

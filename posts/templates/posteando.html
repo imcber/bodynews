@@ -1,31 +1,9 @@
 {% extends 'createPost.html' %}
 
-{%block content%}
-	{# Nombre del post #}
-	<div class="registerTextLabel">
-	 	<p>Nombre del Post:</p>
-        <input type="text" id="postName" class="registerTextDetails">
-    </div>
-
-    
-    {# nombre del autor #}
-    <div class="registerTextLabel">
-	 	<p>Nombre del Autor:</p>
-        <input type="text" id="postAutor" class="registerTextDetails">
-    </div>
-
-    {# Contenido del Post #}
-	<p>Post</p>
-    <form name="elPost" action="" method="POST" target="resultado">
-      <textarea rows="15" cols="100" name="txtPost">Tu post aqui...</textarea>
-      <br>
-      <input type="hidden" name="identificador" value="1">
-      <br>
-      <input type="submit" value="Enviar">
-      <input type="reset" value="Borrar">
-      </p>
-    </form>
-    <hr>
-
-
-{%endblock content%}	
+{% block content %}
+	<h1>New post</h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+       	{{ form.as_p }}
+    	<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+{% endblock content %}
